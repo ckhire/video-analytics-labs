@@ -73,6 +73,84 @@ Aug 27 I brought new laptop Asus TUF F15 2023. I installed Ubuntu 20.04.6. I wan
           [WARNING]: Cannot find manpages to install.
       
      d.   Install TensorRT 8.2.5.1
+          Here as you see I followed lot of steps from DeepStream documentation to install tensorrt. But as it is evident in the last step it is trying to install few cuda 12 packages. It sometimes give issues.
+          Thus I will install required tensort version from tar file.
+   
+         > sudo rm /etc/apt/sources.list.d/*cuda*
+         rm: cannot remove '/etc/apt/sources.list.d/*cuda*': No such file or directory
+         > sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
+         Executing: /tmp/apt-key-gpghome.YFT0jSCJhL/gpg.1.sh --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
+         gpg: requesting key from 'https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub'
+         gpg: key A4B469963BF863CC: public key "cudatools <cudatools@nvidia.com>" imported
+         gpg: Total number processed: 1
+         gpg:               imported: 1
+         > sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+         > sudo apt-get update
+         # Download cudnn 8.4.0 and 11.x local repo packages
+         > sudo dpkg -i cudnn-local-repo-ubuntu2004-8.4.0.27_1.0-1_amd64.deb
+         Selecting previously unselected package cudnn-local-repo-ubuntu2004-8.4.0.27.
+         (Reading database ... 188182 files and directories currently installed.)
+         Preparing to unpack cudnn-local-repo-ubuntu2004-8.4.0.27_1.0-1_amd64.deb ...
+         Unpacking cudnn-local-repo-ubuntu2004-8.4.0.27 (1.0-1) ...
+         Setting up cudnn-local-repo-ubuntu2004-8.4.0.27 (1.0-1) ...
+         
+         The public CUDA GPG key does not appear to be installed.
+         To install the key, run this command:
+         sudo apt-key add /var/cudnn-local-repo-ubuntu2004-8.4.0.27/7fa2af80.pub
+         > sudo apt-get update
+         Reading package lists... Done
+         W: GPG error: file:/var/cudnn-local-repo-ubuntu2004-8.4.0.27  Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY F60F4B3D7FA2AF80
+         E: The repository 'file:/var/cudnn-local-repo-ubuntu2004-8.4.0.27  Release' is not signed.
+         N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+         N: See apt-secure(8) manpage for repository creation and user configuration details.
+         > sudo apt install libcudnn8=8.4.0.27-1+cuda11.6 libcudnn8-dev=8.4.0.27-1+cuda11.6
+         The following NEW packages will be installed:
+           libcudnn8 libcudnn8-dev
+         0 upgraded, 2 newly installed, 0 to remove and 23 not upgraded.
+         > sudo dpkg -i nv-tensorrt-repo-ubuntu2004-cuda11.4-trt8.2.5.1-ga-20220505_1-1_amd64.deb
+            Selecting previously unselected package nv-tensorrt-repo-ubuntu2004-cuda11.4-trt8.2.5.1-ga-20220505.
+            (Reading database ... 188244 files and directories currently installed.)
+            Preparing to unpack nv-tensorrt-repo-ubuntu2004-cuda11.4-trt8.2.5.1-ga-20220505_1-1_amd64.deb ...
+            Unpacking nv-tensorrt-repo-ubuntu2004-cuda11.4-trt8.2.5.1-ga-20220505 (1-1) ...
+            Setting up nv-tensorrt-repo-ubuntu2004-cuda11.4-trt8.2.5.1-ga-20220505 (1-1) ...
+            
+            The public CUDA GPG key does not appear to be installed.
+            To install the key, run this command:
+            sudo apt-key add /var/nv-tensorrt-repo-ubuntu2004-cuda11.4-trt8.2.5.1-ga-20220505/82307095.pub
+         > sudo apt-key add /var/nv-tensorrt-repo-ubuntu2004-cuda11.4-trt8.2.5.1-ga-20220505/82307095.pub
+            OK
+         > sudo apt-get update
+            Reading package lists... Done
+         W: GPG error: file:/var/cudnn-local-repo-ubuntu2004-8.4.0.27  Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY F60F4B3D7FA2AF80
+         E: The repository 'file:/var/cudnn-local-repo-ubuntu2004-8.4.0.27  Release' is not signed.
+         N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+         N: See apt-secure(8) manpage for repository creation and user configuration details.
+
+         >  sudo apt install tensorrt
+         Reading package lists... Done
+         Building dependency tree       
+         Reading state information... Done
+         The following additional packages will be installed:
+           cuda-cccl-12-1 cuda-cccl-12-2 cuda-cudart-12-1 cuda-cudart-12-2 cuda-cudart-dev-12-1 cuda-cudart-dev-12-2 cuda-driver-dev-12-1 cuda-driver-dev-12-2 cuda-nvcc-12-1 cuda-toolkit-12-1-config-common
+           cuda-toolkit-12-2-config-common cuda-toolkit-12-config-common cuda-toolkit-config-common libcublas-12-2 libcublas-dev-12-2 libnvinfer-bin libnvinfer-dev libnvinfer-dispatch-dev libnvinfer-dispatch8
+           libnvinfer-headers-dev libnvinfer-headers-plugin-dev libnvinfer-lean-dev libnvinfer-lean8 libnvinfer-plugin-dev libnvinfer-plugin8 libnvinfer-samples libnvinfer-vc-plugin-dev libnvinfer-vc-plugin8
+           libnvinfer8 libnvonnxparsers-dev libnvonnxparsers8 libnvparsers-dev libnvparsers8
+         The following NEW packages will be installed:
+           cuda-cccl-12-1 cuda-cccl-12-2 cuda-cudart-12-1 cuda-cudart-12-2 cuda-cudart-dev-12-1 cuda-cudart-dev-12-2 cuda-driver-dev-12-1 cuda-driver-dev-12-2 cuda-nvcc-12-1 cuda-toolkit-12-1-config-common
+           cuda-toolkit-12-2-config-common cuda-toolkit-12-config-common cuda-toolkit-config-common libcublas-12-2 libcublas-dev-12-2 libnvinfer-bin libnvinfer-dev libnvinfer-dispatch-dev libnvinfer-dispatch8
+           libnvinfer-headers-dev libnvinfer-headers-plugin-dev libnvinfer-lean-dev libnvinfer-lean8 libnvinfer-plugin-dev libnvinfer-plugin8 libnvinfer-samples libnvinfer-vc-plugin-dev libnvinfer-vc-plugin8
+           libnvinfer8 libnvonnxparsers-dev libnvonnxparsers8 libnvparsers-dev libnvparsers8 tensorrt
+         0 upgraded, 34 newly installed, 0 to remove and 25 not upgraded.
+         Need to get 2,058 MB of archives.
+         After this operation, 5,540 MB of additional disk space will be used.
+         Do you want to continue? [Y/n] n
+         Abort.
+
+      Installing Tensorrt 8.2.5.1 using tar file
+   
+
+
+
 
 
 
