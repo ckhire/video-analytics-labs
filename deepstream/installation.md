@@ -404,9 +404,15 @@ Aug 27 I brought new laptop Asus TUF F15 2023. I installed Ubuntu 20.04.6. I wan
 
    f.  Install Deepstream 6.1
 
-         > 
+         > sudo tar -xvf deepstream_sdk_v6.1.0_x86_64.tbz2 -C /
+         > cd /opt/nvidia/deepstream/deepstream-6.1/
+         > sudo ./install.sh
+         > sudo ldconfig
 
        
+   g.  Copy librdkafka generated files to deepstream
+
+         > sudo cp /usr/local/lib/librdkafka* /opt/nvidia/deepstream/deepstream-6.1/lib
 
 
 
