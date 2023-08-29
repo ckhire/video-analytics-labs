@@ -271,7 +271,142 @@ Aug 27 I brought new laptop Asus TUF F15 2023. I installed Ubuntu 20.04.6. I wan
            mandir                   /usr/local/man
          Generated config.cache
 
+         > make
+         make[1]: Entering directory '/home/ckhire/librdkafka/src'
+         Creating shared library librdkafka.so.1
+         gcc  -shared -Wl,-soname,librdkafka.so.1 rdkafka.o rdkafka_broker.o rdkafka_msg.o rdkafka_topic.o rdkafka_conf.o rdkafka_timer.o rdkafka_offset.o rdkafka_transport.o rdkafka_buf.o rdkafka_queue.o rdkafka_op.o rdkafka_request.o rdkafka_cgrp.o rdkafka_pattern.o rdkafka_partition.o rdkafka_subscription.o rdkafka_assignor.o rdkafka_range_assignor.o rdkafka_roundrobin_assignor.o rdkafka_feature.o rdcrc32.o crc32c.o rdmurmur2.o rdaddr.o rdrand.o rdlist.o tinycthread.o rdlog.o rdstring.o rdkafka_event.o rdkafka_metadata.o rdregex.o rdports.o rdkafka_metadata_cache.o rdavl.o rdkafka_sasl.o rdkafka_sasl_plain.o rdkafka_interceptor.o rdkafka_msgset_writer.o rdkafka_msgset_reader.o rdkafka_header.o rdvarint.o rdbuf.o rdunittest.o snappy.o rdgz.o rdkafka_lz4.o xxhash.o lz4.o lz4frame.o lz4hc.o rddl.o rdkafka_plugin.o -o librdkafka.so.1 -lpthread -lz -lrt -ldl
+         Creating static library librdkafka.a
+         ar rcs librdkafka.a rdkafka.o rdkafka_broker.o rdkafka_msg.o rdkafka_topic.o rdkafka_conf.o rdkafka_timer.o rdkafka_offset.o rdkafka_transport.o rdkafka_buf.o rdkafka_queue.o rdkafka_op.o rdkafka_request.o rdkafka_cgrp.o rdkafka_pattern.o rdkafka_partition.o rdkafka_subscription.o rdkafka_assignor.o rdkafka_range_assignor.o rdkafka_roundrobin_assignor.o rdkafka_feature.o rdcrc32.o crc32c.o rdmurmur2.o rdaddr.o rdrand.o rdlist.o tinycthread.o rdlog.o rdstring.o rdkafka_event.o rdkafka_metadata.o rdregex.o rdports.o rdkafka_metadata_cache.o rdavl.o rdkafka_sasl.o rdkafka_sasl_plain.o rdkafka_interceptor.o rdkafka_msgset_writer.o rdkafka_msgset_reader.o rdkafka_header.o rdvarint.o rdbuf.o rdunittest.o snappy.o rdgz.o rdkafka_lz4.o xxhash.o lz4.o lz4frame.o lz4hc.o rddl.o rdkafka_plugin.o
+         Creating librdkafka.so symlink
+         rm -f "librdkafka.so" && ln -s "librdkafka.so.1" "librdkafka.so"
+         Generating pkg-config file rdkafka.pc
+         Checking librdkafka integrity
+         librdkafka.so.1                OK
+         librdkafka.a                   OK
+         Symbol visibility              OK
+         make[1]: Leaving directory '/home/ckhire/librdkafka/src'
+         make[1]: Entering directory '/home/ckhire/librdkafka/src-cpp'
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c RdKafka.cpp -o RdKafka.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c ConfImpl.cpp -o ConfImpl.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c HandleImpl.cpp -o HandleImpl.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c ConsumerImpl.cpp -o ConsumerImpl.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c ProducerImpl.cpp -o ProducerImpl.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c KafkaConsumerImpl.cpp -o KafkaConsumerImpl.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c TopicImpl.cpp -o TopicImpl.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c TopicPartitionImpl.cpp -o TopicPartitionImpl.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c MessageImpl.cpp -o MessageImpl.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c QueueImpl.cpp -o QueueImpl.o
+         g++ -MD -MP -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -c MetadataImpl.cpp -o MetadataImpl.o
+         Generating linker script librdkafka++.lds from rdkafkacpp.h
+         Creating shared library librdkafka++.so.1
+         gcc  -shared -Wl,-soname,librdkafka++.so.1 RdKafka.o ConfImpl.o HandleImpl.o ConsumerImpl.o ProducerImpl.o KafkaConsumerImpl.o TopicImpl.o TopicPartitionImpl.o MessageImpl.o QueueImpl.o MetadataImpl.o -o librdkafka++.so.1 -L../src -lrdkafka -lstdc++
+         Creating static library librdkafka++.a
+         ar rcs librdkafka++.a RdKafka.o ConfImpl.o HandleImpl.o ConsumerImpl.o ProducerImpl.o KafkaConsumerImpl.o TopicImpl.o TopicPartitionImpl.o MessageImpl.o QueueImpl.o MetadataImpl.o
+         Creating librdkafka++.so symlink
+         rm -f "librdkafka++.so" && ln -s "librdkafka++.so.1" "librdkafka++.so"
+         Generating pkg-config file rdkafka++.pc
+         Checking librdkafka++ integrity
+         librdkafka++.so.1              OK
+         librdkafka++.a                 OK
+         make[1]: Leaving directory '/home/ckhire/librdkafka/src-cpp'
+         make -C examples
+         make[1]: Entering directory '/home/ckhire/librdkafka/examples'
+         gcc -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align  -I../src rdkafka_example.c -o rdkafka_example  \
+         	../src/librdkafka.a -lpthread -lz -lrt -ldl
+         # rdkafka_example is ready
+         #
+         # Run producer (write messages on stdin)
+         ./rdkafka_example -P -t <topic> -p <partition>
+         
+         # or consumer
+         ./rdkafka_example -C -t <topic> -p <partition>
+         
+         #
+         # More usage options:
+         ./rdkafka_example -h
+         gcc -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align  -I../src rdkafka_performance.c -o rdkafka_performance  \
+         	../src/librdkafka.a -lpthread -lz -lrt -ldl
+         # rdkafka_performance is ready
+         #
+         # Run producer
+         ./rdkafka_performance -P -t <topic> -p <partition> -s <msgsize>
+         
+         # or consumer
+         ./rdkafka_performance -C -t <topic> -p <partition>
+         
+         #
+         # More usage options:
+         ./rdkafka_performance -h
+         g++ -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -I../src-cpp rdkafka_example.cpp -o rdkafka_example_cpp  \
+         	../src-cpp/librdkafka++.a ../src/librdkafka.a -lpthread -lz -lrt -ldl -lstdc++
+         gcc -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align  -I../src rdkafka_consumer_example.c -o rdkafka_consumer_example  \
+         	../src/librdkafka.a -lpthread -lz -lrt -ldl
+         # rdkafka_consumer_example is ready
+         #
+         ./rdkafka_consumer_example <topic[:part]> <topic2[:part]> ..
+         
+         #
+         # More usage options:
+         ./rdkafka_consumer_example -h
+         g++ -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -I../src-cpp rdkafka_consumer_example.cpp -o rdkafka_consumer_example_cpp  \
+         	../src-cpp/librdkafka++.a ../src/librdkafka.a -lpthread -lz -lrt -ldl -lstdc++
+         g++ -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align -Wno-non-virtual-dtor -I../src-cpp kafkatest_verifiable_client.cpp -o kafkatest_verifiable_client  \
+         	../src-cpp/librdkafka++.a ../src/librdkafka.a -lpthread -lz -lrt -ldl -lstdc++
+         gcc -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align  -I../src rdkafka_simple_producer.c -o rdkafka_simple_producer  \
+         	../src/librdkafka.a -lpthread -lz -lrt -ldl
+         make[1]: Leaving directory '/home/ckhire/librdkafka/examples'
+         Updating
+         CONFIGURATION.md CONFIGURATION.md.tmp differ: byte 345, line 6
+         Checking  integrity
+         CONFIGURATION.md               OK
+         examples/rdkafka_example       OK
+         examples/rdkafka_performance   OK
+         examples/rdkafka_example_cpp   OK
+         make[1]: Entering directory '/home/ckhire/librdkafka/src'
+         Checking librdkafka integrity
+         librdkafka.so.1                OK
+         librdkafka.a                   OK
+         Symbol visibility              OK
+         make[1]: Leaving directory '/home/ckhire/librdkafka/src'
+         make[1]: Entering directory '/home/ckhire/librdkafka/src-cpp'
+         Checking librdkafka++ integrity
+         librdkafka++.so.1              OK
+         librdkafka++.a                 OK
+         make[1]: Leaving directory '/home/ckhire/librdkafka/src-cpp'
 
+         > sudo make install
+            make[1]: Entering directory '/home/ckhire/librdkafka/src'
+         Install librdkafka to /usr/local
+         install -d $DESTDIR/usr/local/include/librdkafka ; \
+         install -d $DESTDIR/usr/local/lib ; \
+         install rdkafka.h $DESTDIR/usr/local/include/librdkafka ; \
+         install librdkafka.a $DESTDIR/usr/local/lib ; \
+         install librdkafka.so.1 $DESTDIR/usr/local/lib ; \
+         [ -f "rdkafka.pc" ] && ( \
+         	install -d $DESTDIR/usr/local/lib/pkgconfig ; \
+         	install -m 0644 rdkafka.pc $DESTDIR/usr/local/lib/pkgconfig \
+         ) ; \
+         (cd $DESTDIR/usr/local/lib && ln -sf librdkafka.so.1 librdkafka.so)
+         make[1]: Leaving directory '/home/ckhire/librdkafka/src'
+         make[1]: Entering directory '/home/ckhire/librdkafka/src-cpp'
+         Install librdkafka++ to /usr/local
+         install -d $DESTDIR/usr/local/include/librdkafka ; \
+         install -d $DESTDIR/usr/local/lib ; \
+         install rdkafkacpp.h $DESTDIR/usr/local/include/librdkafka ; \
+         install librdkafka++.a $DESTDIR/usr/local/lib ; \
+         install librdkafka++.so.1 $DESTDIR/usr/local/lib ; \
+         [ -f "rdkafka++.pc" ] && ( \
+         	install -d $DESTDIR/usr/local/lib/pkgconfig ; \
+         	install -m 0644 rdkafka++.pc $DESTDIR/usr/local/lib/pkgconfig \
+         ) ; \
+         (cd $DESTDIR/usr/local/lib && ln -sf librdkafka++.so.1 librdkafka++.so)
+         make[1]: Leaving directory '/home/ckhire/librdkafka/src-cpp'
+
+   f.  Install Deepstream 6.1
+
+         > 
+
+       
 
 
 
