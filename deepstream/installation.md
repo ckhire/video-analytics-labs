@@ -147,7 +147,134 @@ Aug 27 I brought new laptop Asus TUF F15 2023. I installed Ubuntu 20.04.6. I wan
          Abort.
 
       Installing Tensorrt 8.2.5.1 using tar file
-   
+
+         > tar xzvf Downloads/TensorRT-8.2.5.1.Linux.x86_64-gnu.cuda-11.4.cudnn8.2.tar.gz
+         > export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ckhire/TensorRT-8.2.5.1/lib
+         > env | grep "LD_"
+         > LD_LIBRARY_PATH=:/home/ckhire/TensorRT-8.2.5.1/lib
+         > sudo pip3 install tensorrt-8.2.5.1-cp38-none-linux_x86_64.whl
+         Processing ./tensorrt-8.2.5.1-cp38-none-linux_x86_64.whl
+         Installing collected packages: tensorrt
+         Successfully installed tensorrt-8.2.5.1
+         > cd ../uff/
+         > sudo pip3 install uff-0.6.9-py2.py3-none-any.whl
+         Processing ./uff-0.6.9-py2.py3-none-any.whl
+         Requirement already satisfied: protobuf>=3.3.0 in /usr/lib/python3/dist-packages (from uff==0.6.9) (3.6.1)
+         Collecting numpy>=1.11.0
+           Downloading numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+              |████████████████████████████████| 17.3 MB 8.9 MB/s
+         Installing collected packages: numpy, uff
+         Successfully installed numpy-1.24.4 uff-0.6.9
+         > cd ../graphsurgeon/
+         > sudo pip3 install graphsurgeon-0.4.5-py2.py3-none-any.whl
+         Processing ./graphsurgeon-0.4.5-py2.py3-none-any.whl
+         Installing collected packages: graphsurgeon
+         Successfully installed graphsurgeon-0.4.5
+
+   e.  Installing lib Kafka
+
+         > git clone https://github.com/edenhill/librdkafka.git
+         > cd librdkafka
+         > git reset --hard 7101c2310341ab3f4675fc565f64f0967e135a6a
+         > ./configure
+         checking for OS or distribution... ok (Ubuntu)
+         checking for C compiler from CC env... failed
+         checking for gcc (by command)... ok
+         checking for C++ compiler from CXX env... failed
+         checking for C++ compiler (g++)... ok
+         checking executable ld... ok
+         checking executable nm... ok
+         checking executable objdump... ok
+         checking executable strip... ok
+         checking for pkgconfig (by command)... ok
+         checking for install (by command)... ok
+         checking for PIC (by compile)... ok
+         checking for GNU-compatible linker options... ok
+         checking for GNU linker-script ld flag... ok
+         checking for __atomic_32 (by compile)... ok
+         checking for __atomic_64 (by compile)... ok
+         checking for socket (by compile)... ok
+         parsing version '0x000b0401'... ok (0.11.4)
+         checking for libpthread (by pkg-config)... failed
+         checking for libpthread (by compile)... ok
+         checking for zlib (by pkg-config)... ok
+         checking for zlib (by compile)... ok (cached)
+         checking for libcrypto (by pkg-config)... failed
+         checking for libcrypto (by compile)... failed (disable)
+         checking for liblz4 (by pkg-config)... failed
+         checking for liblz4 (by compile)... failed (disable)
+         checking for libssl (by pkg-config)... failed
+         checking for libssl (by compile)... failed (disable)
+         checking for libsasl2 (by pkg-config)... failed
+         checking for libsasl2 (by compile)... failed (disable)
+         checking for libsasl (by pkg-config)... failed
+         checking for libsasl (by compile)... failed (disable)
+         checking for crc32chw (by compile)... ok
+         checking for regex (by compile)... ok
+         checking for librt (by pkg-config)... failed
+         checking for librt (by compile)... ok
+         checking for strndup (by compile)... ok
+         checking for strerror_r (by compile)... ok
+         checking for libdl (by pkg-config)... failed
+         checking for libdl (by compile)... ok
+         checking for pthread_setname_gnu (by compile)... ok
+         checking for nm (by env NM)... ok (cached)
+         checking for python (by command)... failed (disable)
+         disabling linker-script since python is not available
+         Generated Makefile.config
+         Generated config.h
+         
+         Configuration summary:
+           prefix                   /usr/local
+           ARCH                     x86_64
+           CPU                      generic
+           GEN_PKG_CONFIG           y
+           ENABLE_DEVEL             n
+           ENABLE_VALGRIND          n
+           ENABLE_REFCNT_DEBUG      n
+           ENABLE_SHAREDPTR_DEBUG   n
+           ENABLE_LZ4_EXT           y
+           ENABLE_SSL               y
+           ENABLE_SASL              y
+           MKL_APP_NAME             librdkafka
+           MKL_APP_DESC_ONELINE     The Apache Kafka C/C++ library
+           MKL_DISTRO               Ubuntu
+           SOLIB_EXT                .so
+           CC                       gcc
+           CXX                      g++
+           LD                       ld
+           NM                       nm
+           OBJDUMP                  objdump
+           STRIP                    strip
+           CPPFLAGS                 -g -O2 -fPIC -Wall -Wsign-compare -Wfloat-equal -Wpointer-arith -Wcast-align
+           PKG_CONFIG               pkg-config
+           INSTALL                  install
+           LIB_LDFLAGS              -shared -Wl,-soname,$(LIBFILENAME)
+           LDFLAG_LINKERSCRIPT      -Wl,--version-script=
+           RDKAFKA_VERSION_STR      0.11.4
+           MKL_APP_VERSION          0.11.4
+           LIBS                     -lpthread -lz -lrt -ldl
+           CFLAGS                   
+           CXXFLAGS                 -Wno-non-virtual-dtor
+           SYMDUMPER                $(NM) -D
+           exec_prefix              /usr/local
+           bindir                   /usr/local/bin
+           sbindir                  /usr/local/sbin
+           libexecdir               /usr/local/libexec
+           datadir                  /usr/local/share
+           sysconfdir               /usr/local/etc
+           sharedstatedir           /usr/local/com
+           localstatedir            /usr/local/var
+           libdir                   /usr/local/lib
+           includedir               /usr/local/include
+           infodir                  /usr/local/info
+           mandir                   /usr/local/man
+         Generated config.cache
+
+
+
+
+
 
 
 
