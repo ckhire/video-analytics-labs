@@ -1,0 +1,1 @@
+Aug 27 I brought new laptop Asus TUF F15 2023. I installed Ubuntu 20.0.6. I want to take this chance to list all the steps of installing various packages required for configuring the Development Machine for Deep Learning in Computer Vision Domain
