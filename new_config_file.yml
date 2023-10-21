@@ -1,0 +1,17 @@
+msgbroker:
+  conn-str: <host>;<port>
+  proto-lib: /opt/nvidia/deepstream/deepstream/lib/libnvds_kafka_proto.so
+  sync: 0
+  topic: <topic>
+msgconv:
+  frame-interval: 30
+  msg2p-newapi: 0
+  payload-type: 0
+sink:
+  sync: 1
+source: null
+streammux:
+  batch-size: 1
+  batched-push-timeout: 40000
+  height: 1080
+  width: 1920
